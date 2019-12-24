@@ -5,3 +5,4 @@ export  let arryPic=[
     "../imges/pic2.jpg",
     "../imges/pic3.jpg"
 ]
+

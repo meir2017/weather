@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'reactstrap';
+import { getResDayActions } from '../FilesActions/weatherActions';
 
 class Favorites extends Component {
 	constructor(props) {
@@ -27,47 +28,55 @@ class Favorites extends Component {
 			urlpic = `https://developer.accuweather.com/sites/default/files/${num}-s.png`;
 		}
 		return urlpic;
-    };
-    ShowDegrees = d => {
-        if(this.props.Degrees){
-            let res = (d - 32) / 1.8;
-            let shortNum = res.toString().slice(0, 2);
-            return <span>{`${shortNum}° C`}</span>;
-        }else
-        return <span>{`${d}° F`}</span>;
-
-    };
+	};
+	ShowDegrees = d => {
+		if (this.props.Degrees) {
+			let res = (d - 32) / 1.8;
+			let shortNum = res.toString().slice(0, 2);
+			return <span>{`${shortNum}° C`}</span>;
+		} else return <span>{`${d}° F`}</span>;
+	};
+	removFromStorg=(index)=>{
+		let getWeatherApp = JSON.parse(localStorage.getItem('WeatherApp'));
+		getWeatherApp.splice(index,1);
+		localStorage.setItem('WeatherApp', JSON.stringify(getWeatherApp));
+		this.setState({WeatherItems:getWeatherApp})
+	}
 	render() {
 		let items = this.state.WeatherItems;
 		let res = items.map((item, index) => {
 			return (
-				<div  key={index}>
+				<div key={index}>
 					<Row>
-                        <Col xs="3"></Col>
+						<Col xs="2"></Col>
 
-                        <Col  className="cardWeather" xs="6">
-                        <Row>
-                        <Col xs="3">{item[0]}</Col>
-                        <Col xs="3"><img alt="pic WeatherIcon" src={this.getPic(item[2].WeatherIcon)} /></Col>
-                        <Col xs="3">{this.ShowDegrees(item[2].Temperature.Value)}</Col>
-                        <Col xs="3">{item[2].IconPhrase}</Col>
-                        </Row>
-                        </Col>
+						<Col className="cardWeather" xs="8">
+							<Row>
+								<Col xs="3">{item[0]}</Col>
+								<Col xs="2">
+									<img alt="pic WeatherIcon" src={this.getPic(item[2].WeatherIcon)} />
+								</Col>
+								<Col xs="2">{this.ShowDegrees(item[2].Temperature.Value)}</Col>
+								<Col xs="3">{item[2].IconPhrase} </Col>
+								<Col xs="2">
+									<i onClick={(e)=>{this.removFromStorg(index)}} className="far fa-trash-alt"></i>
+								</Col>
+								<br /> 
+							</Row>
+						</Col>
 
-                        <Col xs="3"></Col>
-						<br />
+						<Col xs="2"></Col>
 					</Row>
 				</div>
 			);
 		});
 		return (
 			<div>
-            My favorites
-
+				
+				My favorites
 				{res}
 			</div>
 		);
 	}
 }
 export default Favorites;
-

@@ -64,7 +64,6 @@ class ShowToday extends Component {
 		 }
 		 this.setState({})
 	};
-
 	creatBtnAddFunc=()=>{
 
 	let existingFlag = true;
@@ -75,7 +74,8 @@ class ShowToday extends Component {
 		for (let i = 0; i < getWeatherApp.length; i++) {
 			if (getWeatherApp[i][0] === this.props.cityName) {
 				existingFlag = false;
-				return '';
+				return 	<span><i  id="like" className="fas fa-heart"></i>
+				</span>;
 			}
 		}
 		if (existingFlag) {
