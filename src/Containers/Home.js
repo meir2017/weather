@@ -85,7 +85,7 @@ class Home extends Component {
 
 			
 				<nav className="navbar navbar-light bg-light">
-					<span className="navbar-brand" >the Weather app by Meir</span>
+					<span className="navbar-brand" >WeatherApp</span>
 					<FavorSwitchPageComponentites FarenheitOrCelsius={this.FarenheitOrCelsius} />
 					{this.state.FavoritesPage ? (
 						<Button   color="primary"onClick={this.SwitchPage}>Home Page</Button>
