@@ -8,7 +8,6 @@ import FavorSwitchPageComponentites from '../Components/SwitchPageComponent';
 import { SavelocationKeyActions } from '../FilesActions/locationActions';
 import { getResFor_5_DayActions } from '../FilesActions/weatherActions';
 import { getResDayActions } from '../FilesActions/weatherActions';
-
 import { Container,Button } from 'reactstrap';
 class Home extends Component {
 	constructor(props) {
@@ -16,31 +15,13 @@ class Home extends Component {
 		this.state = {
 			Degrees:true,
 			FavoritesPage: false,
-			resDay: {
-				DateTime: '2019-12-20T21:00:00+02:00',
-				EpochDateTime: 1576868400,
-				WeatherIcon: 33,
-				IconPhrase: 'Clear',
-				HasPrecipitation: false,
-				IsDaylight: false,
-				Temperature: {
-					Value: 55,
-					Unit: 'F',
-					UnitType: 18,
-				},
-				PrecipitationProbability: 0,
-				MobileLink:
-					'http://m.accuweather.com/en/il/haifa/213181/hourly-weather-forecast/213181?day=1&hbhhour=21&lang=en-us',
-				Link:
-					'http://www.accuweather.com/en/il/haifa/213181/hourly-weather-forecast/213181?day=1&hbhhour=21&lang=en-us',
-			},
-			prevtest: 'first',
+			resDay: {},
 			inputText: '',
-			infoBack: '',
 			url: 'http://dataservice.accuweather.com/locations/v1/cities/search',
 			key: 'luAx3ZTGIAcZVEuRYxEgDyNXotbnAVwG',
 		};
 	}
+
 	handleChange = event => {
 		event.preventDefault();
 		this.setState({ [event.target.name]: event.target.value });
@@ -91,20 +72,20 @@ class Home extends Component {
 			כדי לצפות בתחזית מזג האויר לפי ערים רצויות <br/>
 			.יש לחפש את העיר המבוקשת בתיבת החיפוש<br/>
 			<br/>
-
 		
 			בנוסף לכך יש אפשרות להוסיף את התוצא במועדפים <br/>
 			הצפייה במועדפים תהיה בלחציה על הלשונית  למעלה 
-			
-
 			</div>
 		)
 	}
 	render() {
 		return (
 			<div className="home-page">
+
+
+			
 				<nav className="navbar navbar-light bg-light">
-					<span className="navbar-brand">the Weather app by Meir</span>
+					<span className="navbar-brand" >the Weather app by Meir</span>
 					<FavorSwitchPageComponentites FarenheitOrCelsius={this.FarenheitOrCelsius} />
 					{this.state.FavoritesPage ? (
 						<Button   color="primary"onClick={this.SwitchPage}>Home Page</Button>
