@@ -48,9 +48,9 @@ class Favorites extends Component {
 			return (
 				<div key={index}>
 					<Row>
-						<Col xs="2"></Col>
+						<Col md="2" xs="0"></Col> 
 
-						<Col className="cardWeather" xs="8">
+						<Col className="cardWeather"  md="8"xs="12">
 							<Row>
 								<Col xs="3">{item[0]}</Col>
 								<Col xs="2">
@@ -65,7 +65,7 @@ class Favorites extends Component {
 							</Row>
 						</Col>
 
-						<Col xs="2"></Col>
+						<Col md="2" xs="0"></Col> 
 					</Row>
 				</div>
 			);

@@ -19,7 +19,9 @@ class Home extends Component {
 			inputText: '',
 			url: 'http://dataservice.accuweather.com/locations/v1/cities/search',
 			key: 'luAx3ZTGIAcZVEuRYxEgDyNXotbnAVwG',
+			key2:'lu4VnX7PGXYkPNArg5rbpyM2gTIr7k0M'
 		};
+
 	}
 	componentDidMount() {
 		let pos = null;
@@ -70,8 +72,15 @@ class Home extends Component {
 				this.handle_5_day(resUniqeu);
 			})
 			.catch(error => {
-				if (error.message === "Cannot read property 'Key' of undefined")
+				
+				
+				if(error){
+					if (error.message === "Cannot read property 'Key' of undefined")
 					alert(`There is no city named : ${this.state.inputText}  ☺ `);
+					else{
+						this.setState({key:this.state.key2})
+					}
+				}
 				    console.log('Error  no name city   fetching and parsing data', error);
 
 			});

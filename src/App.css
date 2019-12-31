@@ -12,28 +12,37 @@
   text-align: center;
 }
 .mycard{
-height: 38vh;
+height: 50vh;
 border: solid 0.5px  rgb(75, 148, 100);
 margin: -12px;
 font-size: 12px;
 }
 .mycard:hover {
   margin-top: -30px;
-  background-color: yellow;
+  font-size: 16px;
+  background-color: rgb(148, 209, 219);
 }
 .imgDay{
   height: 20vh;
-  margin-left: -100px;
+  margin-left: -37px;
+}
+.btnAdd{
+  color: aliceblue;
 }
 
 .cardWeather{
-  padding: 20px; 
+  padding: 10px;
   margin-top: 10px;
-  font-size: larger;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  height: 12vh;
+  height: 14vh;
+  font-size: 14px;
   border: solid 1px rgb(87, 102, 143);
 }
+.cardWeather:hover {
+  font-size: larger;
+  background-color: rgb(148, 209, 219);
+}
+
 .textInfo{
   text-align: center;
   font-size: 20px;
@@ -45,3 +54,4 @@ font-size: 12px;
   color: red;
   
 }
+

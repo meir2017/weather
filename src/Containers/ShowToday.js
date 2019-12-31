@@ -69,7 +69,7 @@ class ShowToday extends Component {
 	let existingFlag = true;
 	let getWeatherApp = JSON.parse(localStorage.getItem('WeatherApp'));
 	if (getWeatherApp == null) {
-		return (<Icon onClick={this.addTOStorg} className="btnAdd" color="primary">add_circle</Icon>)
+		return (<Icon onClick={this.addTOStorg} className="btnAdd" >add_circle</Icon>)
 	} else{
 		for (let i = 0; i < getWeatherApp.length; i++) {
 			if (getWeatherApp[i][0] === this.props.cityName) {
@@ -79,7 +79,7 @@ class ShowToday extends Component {
 			}
 		}
 		if (existingFlag) {
-			return (<Icon onClick={this.addTOStorg} className="btnAdd" color="primary">add_circle</Icon>)
+			return (<Icon onClick={this.addTOStorg} className="btnAdd" >add_circle</Icon>)
 
 		}
 	}
@@ -89,20 +89,20 @@ class ShowToday extends Component {
 		return (
 			<div className="ShowToday-page">
 				<Row>
-					<Col xs="3"></Col>
-					<Col xs="5" className="dayInfo">
+					<Col  md ="2" xs="0"></Col>
+					<Col  md ="8" xs="12"  className="dayInfo">
 						<p>{this.props.cityName}</p>
 
 						<Row>
-							<Col xs="4" className="time">
+							<Col xs="3" className="time">
 								{this.fixTime(this.props.resDay.DateTime)}
 							</Col>
-							<Col xs="4" className="iconPic">
+							<Col xs="6" className="iconPic">
 								<p>
 									<img alt="pic WeatherIcon" src={this.getPic(this.props.resDay.WeatherIcon)} className="imgDay"></img>
 								</p>
 							</Col>
-							<Col xs="4" className="temp+text">
+							<Col xs="3" className="temp+text">
 								<p> {this.ShowDegrees(this.props.resDay.Temperature.Value)} </p>
 								<p>{this.props.resDay.IconPhrase}</p>
 
@@ -111,7 +111,7 @@ class ShowToday extends Component {
 							</Col>
 						</Row>
 					</Col>
-					<Col xs="2"></Col>
+					<Col  md ="2" xs="0"></Col>
 				
 				</Row>
 			</div>
